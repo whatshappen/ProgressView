@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.whathappen.progresslibrary.view.CircleProgress
+        android:id="@+id/circle_progress"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="10dp"
+        cp:strokeWidth="10dp"
+        cp:backgroundColor="@android:color/white"
+        cp:progressType="gradientType_Dial"
+        cp:progressValueStyle="outerValueTypeShowDial"
+        cp:dialTextSize="8sp"/>
+
+</LinearLayout>

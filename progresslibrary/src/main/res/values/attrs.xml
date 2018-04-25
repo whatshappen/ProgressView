@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleProgress">
+        <!--进度条宽度-->
+        <attr name="strokeWidth" format="dimension" />
+        <!--最大进度-->
+        <attr name="maxProgress" format="float" />
+        <!--当前进度-->
+        <attr name="currentProgress" format="float" />
+        <!--开始角度-->
+        <attr name="startAngle" format="float" />
+        <!--进度背景颜色-->
+        <attr name="backgroundColor" format="color|integer" />
+        <!--进度颜色-->
+        <attr name="progressColor" format="color|integer" />
+        <!--进度值字体颜色-->
+        <attr name="textColor" format="color|integer" />
+        <!--进度值字体大小-->
+        <attr name="textSize" format="dimension" />
+        <!--渐变色进度-->
+        <attr name="progressColors_start" format="color|integer" />
+        <attr name="progressColors_center" format="color|integer" />
+        <attr name="progressColors_end" format="color|integer" />
+        <!--样式：默认，渐变-->
+        <attr name="progressType">
+            <enum name="defaultType" value="0" />
+            <enum name="gradientType" value="1" />
+            <enum name="defaultType_Dial" value="2" />
+            <enum name="gradientType_Dial" value="3" />
+        </attr>
+        <!--刻度默认颜色值-->
+        <attr name="dialDefaultColor" format="color|integer" />
+        <!--刻度宽度-->
+        <attr name="singleDialWidth" format="float" />
+        <!--刻度间隔-->
+        <attr name="lineWidth" format="float" />
+        <!--进度值显示风格-->
+        <attr name="progressValueStyle">
+            <enum name="defaultValueType" value="0" />
+            <enum name="defaultValueTypeShowDial" value="1" />
+            <enum name="innerValueType" value="2" />
+            <enum name="outerValueType" value="3" />
+            <enum name="outerValueTypeShowDial" value="4" />
+        </attr>
+        <!--进度值风格-->
+        <attr name="progressValueType">
+            <enum name="intType" value="0" />
+            <enum name="floatType" value="1" />
+        </attr>
+        <!--刻度值字体大小-->
+        <attr name="dialTextSize" format="dimension" />
+    </declare-styleable>
+</resources>
