@@ -23,12 +23,29 @@ CircleProgress Effect:
 
 ![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/dialogStyle.gif)
 
-#Special Note
-When setting progress view the properties in the code, be sure to builder.
+# Special Note
+<p style='color:red'>When setting progress view the properties in the code, be sure to builder().</p>
 
-#Readme
-> strokeWidth: The progress bar width
-> maxProgress: The biggest progress
+# Readme
+#### CircleProgress attrs:
+> * strokeWidth: Progress bar width (进度条宽度)
+> * maxProgress: Biggest progress (最大进度)
+> * currentProgress: Current progress (当前进度)
+> * startAngle: Starting angle (开始角度)
+> * backgroundColor: Background color (进度条默认颜色)
+> * progressColor: Progress color (进度颜色)
+> * textColor: Progress value font color (进度值字体颜色)
+> * textSize: Progress value font size(进度值字体大小)
+> * progressColors_start: Gradation start color (渐变色样式开始颜色)
+> * progressColors_center: Gradation center color (渐变色样式中间颜色)
+> * progressColors_end: Gradation end color (渐变色样式结束颜色)
+> * progressType: Progress style (进度值样式：默认，渐变，刻度)
+> * dialDefaultColor: Dial color (刻度颜色)
+> * singleDialWidth: Dial width (刻度宽度)
+> * lineWidth: Dial interval width (刻度间隔宽度)
+> * progressValueStyle: Progress value style (进度值显示风格)
+> * progressValueType: Progress value type (进度值风格:float,int)
+> * dialTextSize: Dial font size (刻度值字体大小)
 
 
 # License

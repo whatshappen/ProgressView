@@ -21,7 +21,7 @@
         <attr name="progressColors_start" format="color|integer" />
         <attr name="progressColors_center" format="color|integer" />
         <attr name="progressColors_end" format="color|integer" />
-        <!--样式：默认，渐变-->
+        <!--样式：默认，渐变,刻度-->
         <attr name="progressType">
             <enum name="defaultType" value="0" />
             <enum name="gradientType" value="1" />
