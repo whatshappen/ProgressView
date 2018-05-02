@@ -1,7 +1,7 @@
 # ProgressView
-自定义进度条
+material design progress view（material design 风格进度条样式）
 
-# Usage example
+# Usage Example
 
 write 'com.whathappen.progresslibrary.view.CircleProgress' in you layout.xml file:
 
@@ -18,6 +18,9 @@ write 'com.whathappen.progresslibrary.view.CircleProgress' in you layout.xml fil
         cp:progressValueStyle="outerValueTypeShowDial"/>
 ```
 
+# Effect
+
+![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/dialogStyle.gif)
 
 
 
