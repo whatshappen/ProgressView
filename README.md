@@ -19,10 +19,16 @@ write 'com.whathappen.progresslibrary.view.CircleProgress' in you layout.xml fil
 ```
 
 # Effect
+CircleProgress Effect:
 
 ![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/dialogStyle.gif)
 
+#Special Note
+When setting progress view the properties in the code, be sure to builder.
 
+#Readme
+> strokeWidth: The progress bar width
+> maxProgress: The biggest progress
 
 
 # License
