@@ -3,6 +3,11 @@ material design progress view（material design 风格进度条样式）
 
 # Usage Example
 
+in the build.gradle:
+```
+compile 'com.whathappen:progresslibrary:1.0.0'
+```
+
 write 'com.whathappen.progresslibrary.view.CircleProgress' in you layout.xml file:
 
 ```xml
