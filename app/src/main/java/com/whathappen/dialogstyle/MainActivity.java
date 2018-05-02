@@ -143,7 +143,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 switch (checkedId) {
                     case R.id.rb_no_gradient:
-                        rb_no_gradient.setChecked(true);
                         boolean checked = rb_has_dial.isChecked();
                         if (!checked)
                             circleProgress.setProgressStyle(CircleProgressStyle.DEFAULT_TYPE).builder();
@@ -151,7 +150,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
                             circleProgress.setProgressStyle(CircleProgressStyle.DEFAULT_TYPE_DIAL).builder();
                         break;
                     case R.id.rb_has_gradient:
-                        rb_has_gradient.setChecked(true);
                         checked = rb_has_dial.isChecked();
                         if (!checked)
                             circleProgress.setProgressStyle(CircleProgressStyle.GRADIENT_TYPE).builder();
@@ -166,7 +164,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 switch (checkedId) {
                     case R.id.rb_has_dial:
-                        rb_has_dial.setChecked(true);
                         boolean checked = rb_has_gradient.isChecked();
                         if (checked)
                             circleProgress.setProgressStyle(CircleProgressStyle.GRADIENT_TYPE_DIAL).builder();
@@ -174,7 +171,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
                             circleProgress.setProgressStyle(CircleProgressStyle.DEFAULT_TYPE_DIAL).builder();
                         break;
                     case R.id.rb_no_dial:
-                        rb_no_dial.setChecked(true);
                         checked = rb_has_gradient.isChecked();
                         if (checked)
                             circleProgress.setProgressStyle(CircleProgressStyle.GRADIENT_TYPE).builder();
@@ -189,23 +185,18 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 switch (checkedId) {
                     case R.id.rb_value_center:
-                        rb_value_center.setChecked(true);
                         circleProgress.setProgressValueStyle(CircleProgressStyle.DEFAULT_VALUE_TYPE).builder();
                         break;
                     case R.id.rb_value_center_dial:
-                        rb_value_center_dial.setChecked(true);
                         circleProgress.setProgressValueStyle(CircleProgressStyle.DEFAULT_VALUE_TYPE_SHOW_DIAL).builder();
                         break;
                     case R.id.rb_value_inner:
-                        rb_value_inner.setChecked(true);
                         circleProgress.setProgressValueStyle(CircleProgressStyle.INNER_VALUE_TYPE).builder();
                         break;
                     case R.id.rb_value_outer:
-                        rb_value_outer.setChecked(true);
                         circleProgress.setProgressValueStyle(CircleProgressStyle.OUTER_VALUE_TYPE).builder();
                         break;
                     case R.id.rb_value_outer_dial:
-                        rb_value_outer_dial.setChecked(true);
                         circleProgress.setProgressValueStyle(CircleProgressStyle.OUTER_VALUE_TYPE_SHOW_DIAL).builder();
                         break;
                 }
@@ -225,7 +216,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             float[] dialWidth = circleProgress.getDialWidth();
             int i = DensityUtils.px2dp(this, singleDialWidth);
             int i1 = DensityUtils.px2dp(this, dialWidth[1]);
-            System.out.println("-----i ="+i+",------i1 ="+i1);
             circleProgress.setDialWidth(i,i1).builder();//传px
         }
     }

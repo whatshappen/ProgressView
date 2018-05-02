@@ -248,14 +248,14 @@ public class CircleProgress extends View {
             if (progressType == CircleProgressStyle.DEFAULT_TYPE) {
                 canvas.drawArc(rectF, startAngle, progressAngle, false, paint);
             } else if (progressType == CircleProgressStyle.DEFAULT_TYPE_DIAL) {
-                canvasDial(centerX, centerY, progressAngle, canvas, rectF);
+                canvasDial(centerX, centerY, progressAngle, canvas, rectF, false);
             }
         } else if (progressType == CircleProgressStyle.GRADIENT_TYPE || progressType == CircleProgressStyle.GRADIENT_TYPE_DIAL) {
             setSweepGradient(centerX, centerY);
             if (progressType == CircleProgressStyle.GRADIENT_TYPE) {
                 canvas.drawArc(rectF, startAngle, progressAngle, false, paint);
             } else if (progressType == CircleProgressStyle.GRADIENT_TYPE_DIAL) {
-                canvasDial(centerX, centerY, progressAngle, canvas, rectF);
+                canvasDial(centerX, centerY, progressAngle, canvas, rectF, true);
             }
         }
 
@@ -326,7 +326,7 @@ public class CircleProgress extends View {
      * @param canvas
      * @param rectF
      */
-    private void canvasDial(float centerX, float centerY, float progressAngle, Canvas canvas, RectF rectF) {
+    private void canvasDial(float centerX, float centerY, float progressAngle, Canvas canvas, RectF rectF, boolean hasGradient) {
         //绘制总个数的刻度
         float maxCount = 360 / (singleDialWidth + lineWidth);
         paint.setShader(null);//去掉渐变
@@ -334,7 +334,10 @@ public class CircleProgress extends View {
         calculateDial(maxCount, canvas, rectF);
         //绘制当前进度刻度数
         float count = progressAngle / (singleDialWidth + lineWidth);
-        setSweepGradient(centerX, centerY);//设置渐变
+        if (hasGradient)
+            setSweepGradient(centerX, centerY);//设置渐变
+        else
+            paint.setColor(progressColor);//设置默认颜色
         calculateDial(count, canvas, rectF);
     }
 
