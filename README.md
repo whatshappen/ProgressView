@@ -24,6 +24,7 @@ compile 'com.whathappen:progresslibrary:1.0.1'
 ```
 
 <li>write 'com.whathappen.progresslibrary.view.ImageProgress' in you layout.xml file:
+
 ```xml
 <com.whathappen.progresslibrary.view.ImageProgress
         android:id="@+id/image_progress"
