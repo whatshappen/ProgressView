@@ -35,7 +35,7 @@ publish {
     userOrg = 'whatshappen'//用户名
     groupId = 'com.whathappen'//组名。如果包名是com.whathappen.progresslibrary则填写com.whathappen
     artifactId = 'progresslibrary'//项目名称
-    publishVersion = '1.0.0'//版本号
+    publishVersion = '1.0.1'//版本号
     desc = 'progress view'//描述
     website = 'https://github.com/whatshappen/ProgressView'//github上的项目地址
     licences = ['Apache-2.0']
