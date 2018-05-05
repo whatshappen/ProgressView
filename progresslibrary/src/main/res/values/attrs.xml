@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--进度条宽度-->
+    <attr name="strokeWidth" format="dimension" />
+    <!--最大进度-->
+    <attr name="maxProgress" format="float" />
+    <!--当前进度-->
+    <attr name="currentProgress" format="float" />
+    <!--进度背景颜色-->
+    <attr name="backgroundColor" format="color|integer" />
+    <!--进度颜色-->
+    <attr name="progressColor" format="color|integer" />
+    <!--进度值字体颜色-->
+    <attr name="textColor" format="color|integer" />
+    <!--进度值字体大小-->
+    <attr name="textSize" format="dimension" />
+    <!--渐变色进度-->
+    <attr name="progressColors_start" format="color|integer" />
+    <attr name="progressColors_center" format="color|integer" />
+    <attr name="progressColors_end" format="color|integer" />
+
     <declare-styleable name="CircleProgress">
-        <!--进度条宽度-->
-        <attr name="strokeWidth" format="dimension" />
-        <!--最大进度-->
-        <attr name="maxProgress" format="float" />
-        <!--当前进度-->
-        <attr name="currentProgress" format="float" />
+        <attr name="strokeWidth" />
+        <attr name="maxProgress" />
+        <attr name="currentProgress" />
+        <attr name="backgroundColor" />
+        <attr name="progressColor" />
+        <attr name="textColor" />
+        <attr name="textSize" />
         <!--开始角度-->
         <attr name="startAngle" format="float" />
-        <!--进度背景颜色-->
-        <attr name="backgroundColor" format="color|integer" />
-        <!--进度颜色-->
-        <attr name="progressColor" format="color|integer" />
-        <!--进度值字体颜色-->
-        <attr name="textColor" format="color|integer" />
-        <!--进度值字体大小-->
-        <attr name="textSize" format="dimension" />
-        <!--渐变色进度-->
-        <attr name="progressColors_start" format="color|integer" />
-        <attr name="progressColors_center" format="color|integer" />
-        <attr name="progressColors_end" format="color|integer" />
+        <attr name="progressColors_start" />
+        <attr name="progressColors_center" />
+        <attr name="progressColors_end" />
         <!--样式：默认，渐变,刻度-->
         <attr name="progressType">
             <enum name="defaultType" value="0" />
@@ -49,5 +60,51 @@
         </attr>
         <!--刻度值字体大小-->
         <attr name="dialTextSize" format="dimension" />
+    </declare-styleable>
+
+    <!--图片进度属性-->
+    <declare-styleable name="ImageProgress">
+        <attr name="strokeWidth" />
+        <attr name="maxProgress" />
+        <attr name="currentProgress" />
+        <attr name="backgroundColor" />
+        <attr name="progressColor" />
+        <attr name="textColor" />
+        <attr name="textSize" />
+        <!--圆角半径-->
+        <attr name="roundRect" format="dimension" />
+        <!--加载进度时,图片上层背景颜色-->
+        <attr name="progressLoadingBackground" format="color|integer" />
+        <!--是否有加载背景-->
+        <attr name="hasLoadingBackground" format="boolean" />
+        <!--加载到100%是否还显示进度值-->
+        <attr name="hasLastText" format="boolean" />
+        <!--进度样式:默认,渐变-->
+        <attr name="progressStyle">
+            <enum name="defaultType" value="0" />
+            <enum name="gradientType" value="1" />
+        </attr>
+        <!--进度值方向和位置-->
+        <attr name="progressIndexAndOri">
+            <enum name="leftTopCW" value="0" />
+            <enum name="leftTopCCW" value="1" />
+            <enum name="leftBottomCW" value="2" />
+            <enum name="leftBottomCCW" value="3" />
+            <enum name="rightTopCW" value="4" />
+            <enum name="rightTopCCW" value="5" />
+            <enum name="rightBottomCW" value="6" />
+            <enum name="rightBottomCCW" value="7" />
+        </attr>
+        <attr name="progressColors_start" />
+        <attr name="progressColors_center" />
+        <attr name="progressColors_end" />
+        <!--渐变样式:圆形,线性-->
+        <attr name="progressShaderType">
+            <enum name="sweepGradientType" value="0" />
+            <enum name="linearGradientType" value="1" />
+        </attr>
+        <!--是否有进度值提示-->
+        <attr name="hasTextHint" format="boolean" />
+        <attr name="backgroundIcon" format="reference|color"/>
     </declare-styleable>
 </resources>

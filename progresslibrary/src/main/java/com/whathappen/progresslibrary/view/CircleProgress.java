@@ -103,7 +103,7 @@ public class CircleProgress extends View {
     public CircleProgress(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
-        init(context);
+        init();
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CircleProgress);
         strokeWidth = typedArray.getDimension(R.styleable.CircleProgress_strokeWidth, strokeWidth);//进度条宽度
         maxProgress = typedArray.getFloat(R.styleable.CircleProgress_maxProgress, maxProgress);//最大进度
@@ -132,7 +132,7 @@ public class CircleProgress extends View {
     }
 
     //初始化
-    private void init(Context context) {
+    private void init() {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setAntiAlias(true);
         textSize = DensityUtils.dp2px(context, 15);

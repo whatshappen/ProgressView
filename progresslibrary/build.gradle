@@ -1,14 +1,15 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "27.0.3"
+    buildToolsVersion "26.0.1"
 
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -28,4 +29,24 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.+'
     testCompile 'junit:junit:4.12'
+}
+//添加
+publish {
+    userOrg = 'whatshappen'//用户名
+    groupId = 'com.whathappen'//组名。如果包名是com.whathappen.progresslibrary则填写com.whathappen
+    artifactId = 'progresslibrary'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'progress view'//描述
+    website = 'https://github.com/whatshappen/ProgressView'//github上的项目地址
+    licences = ['Apache-2.0']
+}
+//避免乱码
+allprojects {
+    tasks.withType(Javadoc) {
+        options{
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
 }
