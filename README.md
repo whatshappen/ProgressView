@@ -8,7 +8,7 @@ in the build.gradle:
 compile 'com.whathappen:progresslibrary:1.0.0'
 ```
 
-write 'com.whathappen.progresslibrary.view.CircleProgress' in you layout.xml file:
+<li>write 'com.whathappen.progresslibrary.view.CircleProgress' in you layout.xml file:
 
 ```xml
 	<com.whathappen.progresslibrary.view.CircleProgress
@@ -23,10 +23,25 @@ write 'com.whathappen.progresslibrary.view.CircleProgress' in you layout.xml fil
         cp:progressValueStyle="outerValueTypeShowDial"/>
 ```
 
+<li>write 'com.whathappen.progresslibrary.view.ImageProgress' in you layout.xml file:
+```xml
+<com.whathappen.progresslibrary.view.ImageProgress
+        android:id="@+id/image_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        ip:currentProgress="25"
+        ip:backgroundIcon="@mipmap/tabbar_compose_friends_neo" />
+```
+
 # Effect
 CircleProgress Effect:
 
-![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/dialogStyle.gif)
+![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/dialogStyle.gif)<br>
+ImageProgress Effect:
+
+![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/imageProgress.gif)
 
 # Special Note
 <p style='color:red'>When setting progress view the properties in the code, be sure to builder().</p>
@@ -51,6 +66,27 @@ CircleProgress Effect:
 > * progressValueStyle: Progress value style (进度值显示风格)
 > * progressValueType: Progress value type (进度值风格:float,int)
 > * dialTextSize: Dial font size (刻度值字体大小)
+
+#### ImageProgress attrs:
+> * strokeWidth: Progress bar width (进度条宽度)
+> * maxProgress: Biggest progress (最大进度)
+> * currentProgress: Current progress (当前进度)
+> * backgroundColor: Background color (进度条默认颜色)
+> * progressColor: Progress color (进度颜色)
+> * textColor: Progress value font color (进度值字体颜色)
+> * textSize: Progress value font size(进度值字体大小)
+> * progressColors_start: Gradation start color (渐变色样式开始颜色)
+> * progressColors_center: Gradation center color (渐变色样式中间颜色)
+> * progressColors_end: Gradation end color (渐变色样式结束颜色)
+> * progressShaderType: Gradient style (渐变样式)
+> * hasTextHint: Whether there is a progress value prompt (是否有进度值提示)
+> * backgroundIcon: Background icon (背景图片)
+> * progressIndexAndOri: Progress value direction and position (进度值起点和方向)
+> * progressStyle: progress style (进度样式)
+> * hasLastText: Whether to display progress value when loaded to 100% (加载到100%是否还显示进度值)
+> * hasLoadingBackground: Is there a background to load (是否有加载背景)
+> * progressLoadingBackground: Progress loading background (加载进度时,图片上层背景颜色)
+> * roundRect: Corner radius (圆角半径)
 
 
 # License
