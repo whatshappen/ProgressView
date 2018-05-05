@@ -198,13 +198,11 @@ public class CirCleProgressActivity extends Activity implements SeekBar.OnSeekBa
             circleProgress.setProgress(progress).builder();
         } else if (seekBar == sb_stroke_width) {
             int strokeWidth = progress * (maxStrokeWidth - minStrokeWidth) / 100 + minStrokeWidth;
-            circleProgress.setStrokeWidth(DensityUtils.dp2px(this, strokeWidth)).builder();//传px
+            circleProgress.setStrokeWidth(strokeWidth).builder();//传px
         } else if (seekBar == sb_dial_stroke_width) {
             int singleDialWidth = progress * (maxDialWidth - minDialWidth) / 100 + minDialWidth;
             float[] dialWidth = circleProgress.getDialWidth();
-            int i = DensityUtils.px2dp(this, singleDialWidth);
-            int i1 = DensityUtils.px2dp(this, dialWidth[1]);
-            circleProgress.setDialWidth(i, i1).builder();//传px
+            circleProgress.setDialWidth(singleDialWidth, dialWidth[1]).builder();//传px
         }
     }
 

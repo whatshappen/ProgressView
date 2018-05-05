@@ -426,8 +426,7 @@ public class CircleProgress extends View {
      * @return
      */
     public CircleProgress setStrokeWidth(int strokeWidth) {
-        if (context == null) return this;
-        this.strokeWidth = DensityUtils.dp2px(context, strokeWidth);
+        this.strokeWidth = strokeWidth;
         return this;
     }
 
@@ -522,8 +521,7 @@ public class CircleProgress extends View {
      * @return
      */
     public CircleProgress setTextSize(float size) {
-        if (context == null) return this;
-        this.textSize = DensityUtils.dp2px(context, size);
+        this.textSize = size;
         return this;
     }
 
@@ -554,9 +552,8 @@ public class CircleProgress extends View {
      * @return
      */
     public CircleProgress setDialWidth(float singleDialWidth, float lineWidth) {
-        if (context == null) return this;
-        this.singleDialWidth = DensityUtils.dp2px(context, singleDialWidth);
-        this.lineWidth = DensityUtils.dp2px(context, lineWidth);
+        this.singleDialWidth = singleDialWidth;
+        this.lineWidth = lineWidth;
         return this;
     }
 
@@ -595,8 +592,7 @@ public class CircleProgress extends View {
     }
 
     public CircleProgress setDialTextSize(int size) {
-        if (context == null) return this;
-        this.dialTextSize = DensityUtils.dp2px(context, size);
+        this.dialTextSize = size;
         return this;
     }
 
