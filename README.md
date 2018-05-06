@@ -57,7 +57,7 @@ compile 'com.whathappen:progresslibrary:1.0.2'
 
 ![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/imageProgress.gif)<br>
 ><li>LinearProgress Effect:
->![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/linearProgress.gif)<br>
+![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/linearProgress.gif)<br>
 
 # Special Note
 <p style='color:red'>When setting currentProgress view the properties in the code, be sure to builder().</p>
