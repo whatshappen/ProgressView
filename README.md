@@ -1,11 +1,11 @@
 # ProgressView
-material design progress view（material design 风格进度条样式）
+material design currentProgress view（material design 风格进度条样式）
 
 # Usage Example
 
 in the build.gradle:
 ```
-compile 'com.whathappen:progresslibrary:1.0.1'
+compile 'com.whathappen:progresslibrary:1.0.2'
 ```
 
 <li>write 'com.whathappen.progresslibrary.view.CircleProgress' in you layout.xml file:
@@ -36,22 +36,37 @@ compile 'com.whathappen:progresslibrary:1.0.1'
         ip:backgroundIcon="@mipmap/tabbar_compose_friends_neo" />
 ```
 
+<li>write 'com.whathappen.progresslibrary.view.LinearProgress' in you layout.xml file:
+
+```xml
+    <com.whathappen.progresslibrary.view.LinearProgress
+        android:id="@+id/linear_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        lp:currentProgress="32" />
+```
+
 # Effect
-CircleProgress Effect:
+><li>CircleProgress Effect:
 
 ![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/dialogStyle.gif)<br>
-ImageProgress Effect:
+><li>ImageProgress Effect:
 
-![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/imageProgress.gif)
+![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/imageProgress.gif)<br>
+><li>LinearProgress Effect:
+>![effect](https://github.com/whatshappen/ProgressView/blob/master/screen_shot/linearProgress.gif)<br>
 
 # Special Note
-<p style='color:red'>When setting progress view the properties in the code, be sure to builder().</p>
+<p style='color:red'>When setting currentProgress view the properties in the code, be sure to builder().</p>
 
 # Readme
 #### CircleProgress attrs:
 > * strokeWidth: Progress bar width (进度条宽度)
-> * maxProgress: Biggest progress (最大进度)
-> * currentProgress: Current progress (当前进度)
+> * maxProgress: Biggest currentProgress (最大进度)
+> * currentProgress: Current currentProgress (当前进度)
 > * startAngle: Starting angle (开始角度)
 > * backgroundColor: Background color (进度条默认颜色)
 > * progressColor: Progress color (进度颜色)
@@ -70,8 +85,8 @@ ImageProgress Effect:
 
 #### ImageProgress attrs:
 > * strokeWidth: Progress bar width (进度条宽度)
-> * maxProgress: Biggest progress (最大进度)
-> * currentProgress: Current progress (当前进度)
+> * maxProgress: Biggest currentProgress (最大进度)
+> * currentProgress: Current currentProgress (当前进度)
 > * backgroundColor: Background color (进度条默认颜色)
 > * progressColor: Progress color (进度颜色)
 > * textColor: Progress value font color (进度值字体颜色)
@@ -80,15 +95,29 @@ ImageProgress Effect:
 > * progressColors_center: Gradation center color (渐变色样式中间颜色)
 > * progressColors_end: Gradation end color (渐变色样式结束颜色)
 > * progressShaderType: Gradient style (渐变样式)
-> * hasTextHint: Whether there is a progress value prompt (是否有进度值提示)
+> * hasTextHint: Whether there is a currentProgress value prompt (是否有进度值提示)
 > * backgroundIcon: Background icon (背景图片)
 > * progressIndexAndOri: Progress value direction and position (进度值起点和方向)
-> * progressStyle: progress style (进度样式)
-> * hasLastText: Whether to display progress value when loaded to 100% (加载到100%是否还显示进度值)
+> * progressStyle: currentProgress style (进度样式)
+> * hasLastText: Whether to display currentProgress value when loaded to 100% (加载到100%是否还显示进度值)
 > * hasLoadingBackground: Is there a background to load (是否有加载背景)
 > * progressLoadingBackground: Progress loading background (加载进度时,图片上层背景颜色)
 > * roundRect: Corner radius (圆角半径)
 
+#### LinearProgress attrs:
+> * maxProgress: Biggest currentProgress (最大进度)
+> * currentProgress: Current currentProgress (当前进度)
+> * backgroundColor: Background color (进度条默认颜色)
+> * progressColor: Progress color (进度颜色)
+> * textColor: Progress value font color (进度值字体颜色)
+> * textSize: Progress value font size(进度值字体大小)
+> * progressColors_start: Gradation start color (渐变色样式开始颜色)
+> * progressColors_center: Gradation center color (渐变色样式中间颜色)
+> * progressColors_end: Gradation end color (渐变色样式结束颜色)
+> * progressStyle: currentProgress style (进度样式)
+> * percentPadding: Progress value padding (进度值padding)
+> * roundRectX: Fillet X-axis radius (圆角X轴半径)
+> * roundRectY: Fillet Y-axis radius (圆角Y轴半径)
 
 # License
 Copyright 2018 whatshappen

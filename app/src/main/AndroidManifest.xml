@@ -24,6 +24,9 @@
         <activity
             android:name=".CirCleProgressActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".LinearProgressActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

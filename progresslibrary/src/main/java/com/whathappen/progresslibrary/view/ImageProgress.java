@@ -94,6 +94,8 @@ public class ImageProgress extends View {
         strokeWidth = (int) typedArray.getDimension(R.styleable.ImageProgress_strokeWidth, strokeWidth);//进度条宽度
         maxProgress = typedArray.getFloat(R.styleable.ImageProgress_maxProgress, maxProgress);//最大进度
         currentProgress = typedArray.getFloat(R.styleable.ImageProgress_currentProgress, currentProgress);//当前进度
+        if(currentProgress>maxProgress)
+            currentProgress = maxProgress;
         backgroundColor = typedArray.getColor(R.styleable.ImageProgress_backgroundColor, backgroundColor);//进度背景颜色
         progressColor = typedArray.getColor(R.styleable.ImageProgress_progressColor, progressColor);//进度颜色
         textColor = typedArray.getColor(R.styleable.ImageProgress_textColor, textColor);//进度颜色
@@ -337,7 +339,6 @@ public class ImageProgress extends View {
         currentPath.moveTo(strokeLeft + roundRect, strokeTop);
         if (currentLength >= progressLineWidth) {
             currentPath.lineTo(strokeRight - roundRect, strokeTop);
-            //RectF rectF = new RectF(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
             rectF.set(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
             if (currentLength <= progressLineWidth + circumferenceMax / 4) {
                 int circumference = currentLength - progressLineWidth;
@@ -346,7 +347,6 @@ public class ImageProgress extends View {
                 currentPath.arcTo(rectF, 270, 90);
                 if (currentLength >= progressLineWidth + circumferenceMax / 4 + progressLineHeight) {
                     currentPath.lineTo(strokeRight, strokeBottom - roundRect);
-//                    rectF = new RectF(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                     rectF.set(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                     if (currentLength <= progressLineWidth + 2 * circumferenceMax / 4 + progressLineHeight) {
                         int circumference = (currentLength - (progressLineWidth + circumferenceMax / 4 + progressLineHeight));
@@ -355,7 +355,6 @@ public class ImageProgress extends View {
                         currentPath.arcTo(rectF, 0, 90);
                         if (currentLength >= progressLineWidth * 2 + progressLineHeight + 2 * circumferenceMax / 4) {
                             currentPath.lineTo(strokeLeft + roundRect, strokeBottom);
-//                            rectF = new RectF(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                             rectF.set(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                             if (currentLength <= progressLineWidth * 2 + progressLineHeight + 3 * circumferenceMax / 4) {
                                 int circumference = (currentLength - (progressLineWidth * 2 + 2 * circumferenceMax / 4 + progressLineHeight));
@@ -363,7 +362,6 @@ public class ImageProgress extends View {
                             } else {
                                 currentPath.arcTo(rectF, 90, 90);
                                 if (currentLength >= progressLineWidth * 2 + 2 * progressLineHeight + 3 * circumferenceMax / 4) {
-//                                    rectF = new RectF(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                                     rectF.set(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                                     if (currentLength >= maxLength) {
                                         currentPath.arcTo(rectF, 180, 90);
@@ -403,7 +401,6 @@ public class ImageProgress extends View {
         currentPath.moveTo(strokeLeft, strokeTop + roundRect);
         if (currentLength >= progressLineHeight) {
             currentPath.lineTo(strokeLeft, strokeBottom - roundRect);
-//            RectF rectF = new RectF(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
             rectF.set(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
             if (currentLength <= progressLineHeight + circumferenceMax / 4) {
                 int circumference = currentLength - progressLineHeight;
@@ -412,7 +409,6 @@ public class ImageProgress extends View {
                 currentPath.arcTo(rectF, 180, -90);
                 if (currentLength >= progressLineHeight + progressLineWidth + circumferenceMax / 4) {
                     currentPath.lineTo(strokeRight - roundRect, strokeBottom);
-//                    rectF = new RectF(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                     rectF.set(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                     if (currentLength <= progressLineHeight + progressLineWidth + 2 * circumferenceMax / 4) {
                         int circumference = currentLength - progressLineHeight - circumferenceMax / 4 - progressLineWidth;
@@ -421,7 +417,6 @@ public class ImageProgress extends View {
                         currentPath.arcTo(rectF, 90, -90);
                         if (currentLength >= progressLineHeight * 2 + progressLineWidth + 2 * circumferenceMax / 4) {
                             currentPath.lineTo(strokeRight, strokeTop + roundRect);
-//                            rectF = new RectF(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                             rectF.set(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                             if (currentLength <= progressLineHeight * 2 + progressLineWidth + 3 * circumferenceMax / 4) {
                                 int circumference = currentLength - progressLineHeight * 2 - progressLineWidth - 2 * circumferenceMax / 4;
@@ -429,7 +424,6 @@ public class ImageProgress extends View {
                             } else {
                                 currentPath.arcTo(rectF, 0, -90);
                                 if (currentLength >= progressLineHeight * 2 + progressLineWidth * 2 + 3 * circumferenceMax / 4) {
-//                                    rectF = new RectF(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                                     rectF.set(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                                     if (currentLength >= maxLength) {
                                         currentPath.arcTo(rectF, 270, -90);
@@ -469,7 +463,6 @@ public class ImageProgress extends View {
         currentPath.moveTo(strokeLeft, strokeBottom - roundRect);
         if (currentLength >= progressLineHeight) {
             currentPath.lineTo(strokeLeft, strokeTop + roundRect);
-//            RectF rectF = new RectF(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
             rectF.set(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
             if (currentLength <= progressLineHeight + circumferenceMax / 4) {
                 int circumference = currentLength - progressLineHeight;
@@ -478,7 +471,6 @@ public class ImageProgress extends View {
                 currentPath.arcTo(rectF, 180, 90);
                 if (currentLength >= progressLineHeight + progressLineWidth + circumferenceMax / 4) {
                     currentPath.lineTo(strokeRight - roundRect, strokeTop);
-//                    rectF = new RectF(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                     rectF.set(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                     if (currentLength <= progressLineHeight + progressLineWidth + 2 * circumferenceMax / 4) {
                         int circumference = currentLength - progressLineHeight - progressLineWidth - circumferenceMax / 4;
@@ -487,7 +479,6 @@ public class ImageProgress extends View {
                         currentPath.arcTo(rectF, 270, 90);
                         if (currentLength >= progressLineHeight * 2 + progressLineWidth + 2 * circumferenceMax / 4) {
                             currentPath.lineTo(strokeRight, strokeBottom - roundRect);
-//                            rectF = new RectF(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                             rectF.set(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                             if (currentLength <= progressLineHeight * 2 + progressLineWidth + 3 * circumferenceMax / 4) {
                                 int circumference = currentLength - progressLineHeight * 2 - progressLineWidth - 2 * circumferenceMax / 4;
@@ -496,7 +487,6 @@ public class ImageProgress extends View {
                                 currentPath.arcTo(rectF, 0, 90);
                                 if (currentLength >= progressLineHeight * 2 + progressLineWidth * 2 + 3 * circumferenceMax / 4) {
                                     currentPath.lineTo(strokeLeft + roundRect, strokeBottom);
-//                                    rectF = new RectF(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                                     rectF.set(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                                     if (currentLength >= maxLength) {
                                         currentPath.arcTo(rectF, 90, 90);
@@ -536,7 +526,6 @@ public class ImageProgress extends View {
         currentPath.moveTo(strokeLeft + roundRect, strokeBottom);
         if (currentLength >= progressLineWidth) {
             currentPath.lineTo(strokeRight - roundRect, strokeBottom);
-//            RectF rectF = new RectF(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
             rectF.set(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
             if (currentLength <= progressLineWidth + circumferenceMax / 4) {
                 int circumference = currentLength - progressLineWidth;
@@ -545,7 +534,6 @@ public class ImageProgress extends View {
                 currentPath.arcTo(rectF, 90, -90);
                 if (currentLength >= progressLineWidth + circumferenceMax / 4 + progressLineHeight) {
                     currentPath.lineTo(strokeRight, strokeTop + roundRect);
-//                    rectF = new RectF(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                     rectF.set(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                     if (currentLength <= progressLineWidth + 2 * circumferenceMax / 4 + progressLineHeight) {
                         int circumference = currentLength - progressLineWidth - circumferenceMax / 4 - progressLineHeight;
@@ -554,7 +542,6 @@ public class ImageProgress extends View {
                         currentPath.arcTo(rectF, 0, -90);
                         if (currentLength >= progressLineWidth * 2 + 2 * circumferenceMax / 4 + progressLineHeight) {
                             currentPath.lineTo(strokeLeft + roundRect, strokeTop);
-//                            rectF = new RectF(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                             rectF.set(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                             if (currentLength <= progressLineWidth * 2 + 3 * circumferenceMax / 4 + progressLineHeight) {
                                 int circumference = currentLength - progressLineWidth * 2 - 2 * circumferenceMax / 4 - progressLineHeight;
@@ -563,7 +550,6 @@ public class ImageProgress extends View {
                                 currentPath.arcTo(rectF, 270, -90);
                                 if (currentLength >= progressLineWidth * 2 + 3 * circumferenceMax / 4 + progressLineHeight * 2) {
                                     currentPath.lineTo(strokeLeft, strokeBottom - roundRect);
-//                                    rectF = new RectF(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                                     rectF.set(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                                     if (currentLength >= maxLength) {
                                         currentPath.arcTo(rectF, 180, -90);
@@ -604,7 +590,6 @@ public class ImageProgress extends View {
         currentPath.moveTo(strokeRight, strokeTop + roundRect);
         if (currentLength >= progressLineHeight) {
             currentPath.lineTo(strokeRight, strokeBottom - roundRect);
-//            RectF rectF = new RectF(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
             rectF.set(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
             if (currentLength <= progressLineHeight + circumferenceMax / 4) {
                 int circumference = currentLength - progressLineHeight;
@@ -613,7 +598,6 @@ public class ImageProgress extends View {
                 currentPath.arcTo(rectF, 0, 90);
                 if (currentLength >= progressLineHeight + circumferenceMax / 4 + progressLineWidth) {
                     currentPath.lineTo(strokeLeft + roundRect, strokeBottom);
-//                    rectF = new RectF(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                     rectF.set(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                     if (currentLength <= progressLineHeight + 2 * circumferenceMax / 4 + progressLineWidth) {
                         int circumference = currentLength - progressLineWidth - circumferenceMax / 4 - progressLineHeight;
@@ -622,7 +606,6 @@ public class ImageProgress extends View {
                         currentPath.arcTo(rectF, 90, 90);
                         if (currentLength >= progressLineHeight * 2 + 2 * circumferenceMax / 4 + progressLineWidth) {
                             currentPath.lineTo(strokeLeft, strokeTop + roundRect);
-//                            rectF = new RectF(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                             rectF.set(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                             if (currentLength <= progressLineHeight * 2 + 3 * circumferenceMax / 4 + progressLineWidth) {
                                 int circumference = currentLength - progressLineWidth - 2 * circumferenceMax / 4 - 2 * progressLineHeight;
@@ -631,7 +614,6 @@ public class ImageProgress extends View {
                                 currentPath.arcTo(rectF, 180, 90);
                                 if (currentLength >= progressLineHeight * 2 + 3 * circumferenceMax / 4 + progressLineWidth * 2) {
                                     currentPath.lineTo(strokeRight - roundRect, strokeTop);
-//                                    rectF = new RectF(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                                     rectF.set(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                                     if (currentLength >= maxLength) {
                                         currentPath.arcTo(rectF, 270, 90);
@@ -674,7 +656,6 @@ public class ImageProgress extends View {
         currentPath.moveTo(strokeRight - roundRect, strokeTop);
         if (currentLength >= progressLineWidth) {
             currentPath.lineTo(strokeLeft + roundRect, strokeTop);
-//            RectF rectF = new RectF(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
             rectF.set(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
             if (currentLength <= progressLineWidth + circumferenceMax / 4) {
                 int circumference = currentLength - progressLineWidth;
@@ -683,7 +664,6 @@ public class ImageProgress extends View {
                 currentPath.arcTo(rectF, 270, -90);
                 if (currentLength >= progressLineWidth + circumferenceMax / 4 + progressLineHeight) {
                     currentPath.lineTo(strokeLeft, strokeBottom - roundRect);
-//                    rectF = new RectF(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                     rectF.set(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                     if (currentLength <= progressLineWidth + 2 * circumferenceMax / 4 + progressLineHeight) {
                         int circumference = currentLength - progressLineWidth - circumferenceMax / 4 - progressLineHeight;
@@ -692,7 +672,6 @@ public class ImageProgress extends View {
                         currentPath.arcTo(rectF, 180, -90);
                         if (currentLength >= progressLineWidth * 2 + 2 * circumferenceMax / 4 + progressLineHeight) {
                             currentPath.lineTo(strokeRight - roundRect, strokeBottom);
-//                            rectF = new RectF(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                             rectF.set(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                             if (currentLength <= progressLineWidth * 2 + 3 * circumferenceMax / 4 + progressLineHeight) {
                                 int circumference = currentLength - progressLineWidth * 2 - 2 * circumferenceMax / 4 - progressLineHeight;
@@ -701,7 +680,6 @@ public class ImageProgress extends View {
                                 currentPath.arcTo(rectF, 90, -90);
                                 if (currentLength >= progressLineWidth * 2 + 3 * circumferenceMax / 4 + progressLineHeight * 2) {
                                     currentPath.lineTo(strokeRight, strokeTop + roundRect);
-//                                    rectF = new RectF(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                                     rectF.set(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                                     if (currentLength >= maxLength) {
                                         currentPath.arcTo(rectF, 0, -90);
@@ -741,7 +719,6 @@ public class ImageProgress extends View {
         currentPath.moveTo(strokeRight - roundRect, strokeBottom);
         if (currentLength >= progressLineWidth) {
             currentPath.lineTo(strokeLeft + roundRect, strokeBottom);
-//            RectF rectF = new RectF(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
             rectF.set(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
             if (currentLength <= progressLineWidth + circumferenceMax / 4) {
                 int circumference = currentLength - progressLineWidth;
@@ -750,7 +727,6 @@ public class ImageProgress extends View {
                 currentPath.arcTo(rectF, 90, 90);
                 if (currentLength >= progressLineWidth + circumferenceMax / 4 + progressLineHeight) {
                     currentPath.lineTo(strokeLeft, strokeTop + roundRect);
-//                    rectF = new RectF(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                     rectF.set(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                     if (currentLength <= progressLineWidth + 2 * circumferenceMax / 4 + progressLineHeight) {
                         int circumference = currentLength - progressLineWidth - circumferenceMax / 4 - progressLineHeight;
@@ -759,7 +735,6 @@ public class ImageProgress extends View {
                         currentPath.arcTo(rectF, 180, 90);
                         if (currentLength >= progressLineWidth * 2 + 2 * circumferenceMax / 4 + progressLineHeight) {
                             currentPath.lineTo(strokeRight - roundRect, strokeTop);
-//                            rectF = new RectF(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                             rectF.set(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
                             if (currentLength <= progressLineWidth * 2 + 3 * circumferenceMax / 4 + progressLineHeight) {
                                 int circumference = currentLength - progressLineWidth * 2 - 2 * circumferenceMax / 4 - progressLineHeight;
@@ -768,7 +743,6 @@ public class ImageProgress extends View {
                                 currentPath.arcTo(rectF, 270, 90);
                                 if (currentLength >= progressLineWidth * 2 + 3 * circumferenceMax / 4 + progressLineHeight * 2) {
                                     currentPath.lineTo(strokeRight, strokeBottom - roundRect);
-//                                    rectF = new RectF(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                                     rectF.set(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                                     if (currentLength > maxLength) {
                                         currentPath.arcTo(rectF, 0, 90);
@@ -808,7 +782,6 @@ public class ImageProgress extends View {
         currentPath.moveTo(strokeRight, strokeBottom - roundRect);
         if (currentLength >= progressLineHeight) {
             currentPath.lineTo(strokeRight, strokeTop + roundRect);
-//            RectF rectF = new RectF(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
             rectF.set(strokeRight - 2 * roundRect, strokeTop, strokeRight, strokeTop + 2 * roundRect);
             if (currentLength <= progressLineHeight + circumferenceMax / 4) {
                 int circumference = currentLength - progressLineHeight;
@@ -817,7 +790,6 @@ public class ImageProgress extends View {
                 currentPath.arcTo(rectF, 0, -90);
                 if (currentLength >= progressLineHeight + circumferenceMax / 4 + progressLineWidth) {
                     currentPath.lineTo(strokeLeft + roundRect, strokeTop);
-//                    rectF = new RectF(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                     rectF.set(strokeLeft, strokeTop, strokeLeft + 2 * roundRect, strokeTop + 2 * roundRect);
                     if (currentLength <= progressLineHeight + 2 * circumferenceMax / 4 + progressLineWidth) {
                         int circumference = currentLength - progressLineHeight - circumferenceMax / 4 - progressLineWidth;
@@ -826,7 +798,6 @@ public class ImageProgress extends View {
                         currentPath.arcTo(rectF, 270, -90);
                         if (currentLength >= progressLineHeight * 2 + 2 * circumferenceMax / 4 + progressLineWidth) {
                             currentPath.lineTo(strokeLeft, strokeBottom - roundRect);
-//                            rectF = new RectF(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                             rectF.set(strokeLeft, strokeBottom - 2 * roundRect, strokeLeft + 2 * roundRect, strokeBottom);
                             if (currentLength <= progressLineHeight * 2 + 3 * circumferenceMax / 4 + progressLineWidth) {
                                 int circumference = currentLength - progressLineHeight * 2 - 2 * circumferenceMax / 4 - progressLineWidth;
@@ -835,7 +806,6 @@ public class ImageProgress extends View {
                                 currentPath.arcTo(rectF, 180, -90);
                                 if (currentLength >= progressLineHeight * 2 + 3 * circumferenceMax / 4 + 2 * progressLineWidth) {
                                     currentPath.lineTo(strokeRight - roundRect, strokeBottom);
-//                                    rectF = new RectF(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                                     rectF.set(strokeRight - 2 * roundRect, strokeBottom - 2 * roundRect, strokeRight, strokeBottom);
                                     if (currentLength >= maxLength) {
                                         currentPath.arcTo(rectF, 90, -90);

@@ -2,12 +2,8 @@ package com.whathappen.dialogstyle;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
-import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
@@ -28,18 +24,6 @@ import com.whathappen.progresslibrary.view.ImageProgress;
 public class ImageProgressActivity extends Activity implements SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener {
 
     private ImageProgress image_progress;
-    float progress = 0;
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            image_progress.setProgress(progress).builder();
-            if (progress < 100) {
-                progress = progress + 2f;
-                handler.sendEmptyMessageDelayed(0, 200);
-            }
-        }
-    };
     private SeekBar sb_progress;
     private SeekBar sb_strokeWidth;
     private SeekBar sb_roundRect;

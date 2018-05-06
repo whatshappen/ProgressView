@@ -108,6 +108,8 @@ public class CircleProgress extends View {
         strokeWidth = typedArray.getDimension(R.styleable.CircleProgress_strokeWidth, strokeWidth);//进度条宽度
         maxProgress = typedArray.getFloat(R.styleable.CircleProgress_maxProgress, maxProgress);//最大进度
         currentProgress = typedArray.getFloat(R.styleable.CircleProgress_currentProgress, maxProgress);//当前进度
+        if (currentProgress > maxProgress)
+            currentProgress = maxProgress;
         startAngle = typedArray.getFloat(R.styleable.CircleProgress_startAngle, startAngle);//开始角度
         backgroundColor = typedArray.getColor(R.styleable.CircleProgress_backgroundColor, backgroundColor);//进度背景颜色
         progressColor = typedArray.getColor(R.styleable.CircleProgress_progressColor, progressColor);//进度颜色
@@ -151,12 +153,12 @@ public class CircleProgress extends View {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-        int width = (int) onMeasureWidth(widthSize, widthMode);
-        int height = (int) onMeasureHeight(heightSize, heightMode);
         paddingLeft = getPaddingLeft();
         paddingTop = getPaddingTop();
         paddingRight = getPaddingRight();
         paddingBottom = getPaddingBottom();
+        int width = (int) onMeasureWidth(widthSize, widthMode);
+        int height = (int) onMeasureHeight(heightSize, heightMode);
         //进度值显示在外层
         if (progressValueStyle == CircleProgressStyle.OUTER_VALUE_TYPE ||
                 progressValueStyle == CircleProgressStyle.OUTER_VALUE_TYPE_SHOW_DIAL) {

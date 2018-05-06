@@ -19,6 +19,12 @@
     <attr name="progressColors_center" format="color|integer" />
     <attr name="progressColors_end" format="color|integer" />
 
+    <!--进度样式:默认,渐变-->
+    <attr name="progressStyle">
+        <enum name="defaultType" value="0" />
+        <enum name="gradientType" value="1" />
+    </attr>
+
     <declare-styleable name="CircleProgress">
         <attr name="strokeWidth" />
         <attr name="maxProgress" />
@@ -80,10 +86,7 @@
         <!--加载到100%是否还显示进度值-->
         <attr name="hasLastText" format="boolean" />
         <!--进度样式:默认,渐变-->
-        <attr name="progressStyle">
-            <enum name="defaultType" value="0" />
-            <enum name="gradientType" value="1" />
-        </attr>
+        <attr name="progressStyle" />
         <!--进度值方向和位置-->
         <attr name="progressIndexAndOri">
             <enum name="leftTopCW" value="0" />
@@ -105,6 +108,27 @@
         </attr>
         <!--是否有进度值提示-->
         <attr name="hasTextHint" format="boolean" />
-        <attr name="backgroundIcon" format="reference|color"/>
+        <attr name="backgroundIcon" format="reference|color" />
+    </declare-styleable>
+
+    <!--水平进度-->
+    <declare-styleable name="LinearProgress">
+        <attr name="maxProgress" />
+        <attr name="currentProgress" />
+        <attr name="backgroundColor" />
+        <attr name="progressColor" />
+        <attr name="textColor" />
+        <attr name="textSize" />
+        <!--圆角x轴半径-->
+        <attr name="roundRectX" format="dimension" />
+        <!--圆角y轴半径-->
+        <attr name="roundRectY" format="dimension" />
+        <attr name="progressColors_start" />
+        <attr name="progressColors_center" />
+        <attr name="progressColors_end" />
+        <!--进度样式:默认,渐变-->
+        <attr name="progressStyle" />
+        <!--进度值的padding-->
+        <attr name="percentPadding" format="dimension" />
     </declare-styleable>
 </resources>
